@@ -22,27 +22,27 @@ let RestaurantTypeController = class RestaurantTypeController {
         this.coreGateway = coreGateway;
     }
     async create(body) {
-        const createdType = (await this.coreGateway.request('restaurant-type-create', body)).toClass(RestaurantTypeDto_1.RestaurantTypeDto);
+        const createdType = (await this.coreGateway.request('place-type-create', body)).toClass(RestaurantTypeDto_1.RestaurantTypeDto);
         return createdType;
     }
     async edit(id, body) {
-        const editedType = (await this.coreGateway.request('restaurant-type-edit', Object.assign({ id }, body))).toClass(RestaurantTypeDto_1.RestaurantTypeDto);
+        const editedType = (await this.coreGateway.request('place-type-edit', Object.assign({ id }, body))).toClass(RestaurantTypeDto_1.RestaurantTypeDto);
         return editedType;
     }
     async list() {
         const list = (await this.coreGateway
-            .request('restaurant-type-list'))
+            .request('place-type-list'))
             .toClassList(RestaurantTypeDto_1.RestaurantTypeDto);
         return list;
     }
     async getOne(id) {
         const item = (await this.coreGateway
-            .request('restaurant-type-one', { id }))
+            .request('place-type-one', { id }))
             .toClass(RestaurantTypeDto_1.RestaurantTypeDto);
         return item;
     }
     async delete(id) {
-        await this.coreGateway.request('restaurant-type-delete', {
+        await this.coreGateway.request('place-type-delete', {
             id,
         });
         return {
@@ -85,7 +85,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RestaurantTypeController.prototype, "delete", null);
 RestaurantTypeController = __decorate([
-    common_1.Controller('restaurant-type'),
+    common_1.Controller('place-type'),
     __metadata("design:paramtypes", [core_gateway_service_1.CoreGatewayService])
 ], RestaurantTypeController);
 exports.RestaurantTypeController = RestaurantTypeController;
